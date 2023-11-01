@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { AppError } from "../errors";
 import { ZodError } from "zod";
+import { JsonWebTokenError } from "jsonwebtoken";
 
 export const handleErrors = (
   err: unknown,
@@ -9,13 +10,17 @@ export const handleErrors = (
   next: NextFunction
 ): Response => {
   if (err instanceof AppError) {
-    return res.status(err.stauts).json({ error: err.message });
+    return res.status(err.stauts).json({ message: err.message });
   }
 
   if (err instanceof ZodError) {
-    return res.status(400).json({ error: err.errors });
+    return res.status(400).json({ message: err.flatten().fieldErrors });
+  }
+
+  if (err instanceof JsonWebTokenError) {
+    return res.status(401).json({ message: err.message });
   }
 
   console.error(err);
-  return res.status(500).json({ error: "Internal server error." });
+  return res.status(500).json({ message: "Internal server error" });
 };
