@@ -1,3 +1,4 @@
+import { TLoginBody, TLoginReturn } from "./login.interface";
 import {
   TUserCreate,
   TUserAdminOmit,
@@ -7,6 +8,7 @@ import {
   TUserRepo,
 } from "./users.interface";
 
+export { TLoginBody, TLoginReturn };
 export {
   TUserCreate,
   TUserAdminOmit,
