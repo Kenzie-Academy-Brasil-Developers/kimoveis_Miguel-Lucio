@@ -1,3 +1,4 @@
+import { loginController } from "./login.controller";
 import {
   createUserController,
   deleteUserController,
@@ -5,6 +6,7 @@ import {
   updateUserController,
 } from "./users.controller";
 
+export { loginController };
 export {
   createUserController,
   deleteUserController,
