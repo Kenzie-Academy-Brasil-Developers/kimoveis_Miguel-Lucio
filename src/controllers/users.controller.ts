@@ -1,7 +1,11 @@
 import { Request, Response } from "express";
-import { ReturningStatementNotSupportedError } from "typeorm";
-import { TUserReturn } from "../interfaces";
-import { createUserService } from "../services";
+import { TUserArrayReturn, TUserReturn } from "../interfaces";
+import {
+  createUserService,
+  deleteUserService,
+  readUsersService,
+  updateUserService,
+} from "../services";
 
 export const createUserController = async (
   req: Request,
@@ -12,23 +16,29 @@ export const createUserController = async (
   return res.status(201).json(newUser);
 };
 
-export const readUserController = async (
+export const readUsersController = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
-  return res.status(200).json();
+  const users: TUserArrayReturn = await readUsersService();
+
+  return res.status(200).json(users);
 };
 
 export const updateUserController = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
-  return res.status(200).json();
+  const user = await updateUserService(res.locals.user, req.body);
+
+  return res.status(200).json(user);
 };
 
 export const deleteUserController = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
-  return res.status(200).json();
+  await deleteUserService(res.locals.user);
+
+  return res.status(204).json();
 };
