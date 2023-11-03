@@ -1,6 +1,7 @@
 import {
   createCategoryService,
   readCategoriesService,
+  readRealEstateByCategoryService,
 } from "./categories.service";
 import { loginService } from "./login.service";
 import {
@@ -10,7 +11,11 @@ import {
   deleteUserService,
 } from "./users.service";
 
-export { createCategoryService, readCategoriesService };
+export {
+  createCategoryService,
+  readCategoriesService,
+  readRealEstateByCategoryService,
+};
 export { loginService };
 export {
   createUserService,
