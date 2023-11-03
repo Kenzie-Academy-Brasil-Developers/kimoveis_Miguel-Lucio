@@ -1,3 +1,8 @@
+import {
+  categorySchema,
+  categoryCreateSchema,
+  categoryArrayReturnSchema,
+} from "./categories.schema";
 import { loginBodySchema } from "./login.schema";
 import {
   userAdminOmitSchema,
@@ -8,6 +13,7 @@ import {
   userUpdateSchema,
 } from "./users.schema";
 
+export { categorySchema, categoryCreateSchema, categoryArrayReturnSchema };
 export { loginBodySchema };
 export {
   userAdminOmitSchema,
