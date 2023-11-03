@@ -1,5 +1,5 @@
 import { Category } from "../entities";
-import { TCategoryCreate } from "../interfaces";
+import { TCategoryArrayReturn, TCategoryCreate } from "../interfaces";
 import { categoriesRepository } from "../repositories";
 
 export const createCategoryService = async (
@@ -10,3 +10,10 @@ export const createCategoryService = async (
 
   return newCategory;
 };
+
+export const readCategoriesService =
+  async (): Promise<TCategoryArrayReturn> => {
+    const categories: TCategoryArrayReturn = await categoriesRepository.find();
+
+    return categories;
+  };
