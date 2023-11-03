@@ -1,6 +1,7 @@
 import {
   createCategoryController,
   readCategoriesController,
+  readRealEstateByCategoryController,
 } from "./categories.controller";
 import { loginController } from "./login.controller";
 import {
@@ -10,7 +11,11 @@ import {
   updateUserController,
 } from "./users.controller";
 
-export { createCategoryController, readCategoriesController };
+export {
+  createCategoryController,
+  readCategoriesController,
+  readRealEstateByCategoryController,
+};
 export { loginController };
 export {
   createUserController,
