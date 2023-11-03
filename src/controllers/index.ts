@@ -1,3 +1,4 @@
+import { createCategoryController } from "./categories.controller";
 import { loginController } from "./login.controller";
 import {
   createUserController,
@@ -6,6 +7,7 @@ import {
   updateUserController,
 } from "./users.controller";
 
+export { createCategoryController };
 export { loginController };
 export {
   createUserController,
