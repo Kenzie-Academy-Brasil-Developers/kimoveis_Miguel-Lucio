@@ -1,5 +1,15 @@
 import { loginService } from "./login.service";
-import { createUserService } from "./users.service";
+import {
+  createUserService,
+  readUsersService,
+  updateUserService,
+  deleteUserService,
+} from "./users.service";
 
 export { loginService };
-export { createUserService };
+export {
+  createUserService,
+  readUsersService,
+  updateUserService,
+  deleteUserService,
+};
