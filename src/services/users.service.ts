@@ -1,7 +1,12 @@
 import { User } from "../entities";
-import { TUserCreate, TUserReturn } from "../interfaces";
+import {
+  TUserArrayReturn,
+  TUserCreate,
+  TUserReturn,
+  TUserUpdate,
+} from "../interfaces";
 import { usersRepository } from "../repositories";
-import { userReturnSchema } from "../schemas";
+import { userArrayReturnSchema, userReturnSchema } from "../schemas";
 
 export const createUserService = async (
   data: TUserCreate
@@ -10,4 +15,24 @@ export const createUserService = async (
   await usersRepository.save(newUser);
 
   return userReturnSchema.parse(newUser);
+};
+
+export const readUsersService = async (): Promise<TUserArrayReturn> => {
+  const users: Array<User> = await usersRepository.find();
+
+  return userArrayReturnSchema.parse(users);
+};
+
+export const updateUserService = async (
+  user: User,
+  body: TUserUpdate
+): Promise<TUserReturn> => {
+  const updateUser: User = usersRepository.create({ ...user, ...body });
+  await usersRepository.save(updateUser);
+
+  return userReturnSchema.parse(updateUser);
+};
+
+export const deleteUserService = async (user: User): Promise<void> => {
+  await usersRepository.softRemove(user);
 };
