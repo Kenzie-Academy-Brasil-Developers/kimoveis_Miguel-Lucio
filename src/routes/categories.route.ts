@@ -6,7 +6,10 @@ import {
   verifyToken,
 } from "../middlewares";
 import { categoryCreateSchema } from "../schemas";
-import { createCategoryController } from "../controllers";
+import {
+  createCategoryController,
+  readCategoriesController,
+} from "../controllers";
 
 export const categoriesRoutes: Router = Router();
 
@@ -18,6 +21,6 @@ categoriesRoutes.post(
   verifyCategoryName,
   createCategoryController
 );
-categoriesRoutes.get("/");
+categoriesRoutes.get("/", readCategoriesController);
 
 categoriesRoutes.get("/:id/realEstate");
