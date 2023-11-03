@@ -9,17 +9,14 @@ export const handleErrors = (
   res: Response,
   next: NextFunction
 ): Response => {
-  if (err instanceof AppError) {
+  if (err instanceof AppError)
     return res.status(err.stauts).json({ message: err.message });
-  }
 
-  if (err instanceof ZodError) {
+  if (err instanceof ZodError)
     return res.status(400).json({ message: err.flatten().fieldErrors });
-  }
 
-  if (err instanceof JsonWebTokenError) {
+  if (err instanceof JsonWebTokenError)
     return res.status(401).json({ message: err.message });
-  }
 
   console.error(err);
   return res.status(500).json({ message: "Internal server error" });
