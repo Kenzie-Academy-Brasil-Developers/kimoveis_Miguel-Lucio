@@ -1,7 +1,18 @@
 import { Router } from "express";
-import { createUserController } from "../controllers";
-import { validateBody, verifyEmail } from "../middlewares";
-import { userCreateSchema } from "../schemas";
+import {
+  createUserController,
+  deleteUserController,
+  readUsersController,
+  updateUserController,
+} from "../controllers";
+import {
+  validateBody,
+  verifyEmail,
+  verifyId,
+  verifyPermissions,
+  verifyToken,
+} from "../middlewares";
+import { userCreateSchema, userUpdateSchema } from "../schemas";
 
 export const usersRoutes: Router = Router();
 
@@ -11,7 +22,8 @@ usersRoutes.post(
   verifyEmail,
   createUserController
 );
-usersRoutes.get("/");
+usersRoutes.get("/", verifyToken, verifyPermissions, readUsersController);
 
-usersRoutes.patch("/:id");
-usersRoutes.delete("/:id");
+usersRoutes.use("/:id", verifyId, verifyToken, verifyPermissions);
+usersRoutes.patch("/:id", validateBody(userUpdateSchema), updateUserController);
+usersRoutes.delete("/:id", deleteUserController);
