@@ -9,6 +9,7 @@ import { categoryCreateSchema } from "../schemas";
 import {
   createCategoryController,
   readCategoriesController,
+  readRealEstateByCategoryController,
 } from "../controllers";
 
 export const categoriesRoutes: Router = Router();
@@ -23,4 +24,4 @@ categoriesRoutes.post(
 );
 categoriesRoutes.get("/", readCategoriesController);
 
-categoriesRoutes.get("/:id/realEstate");
+categoriesRoutes.get("/:id/realEstate", readRealEstateByCategoryController);
