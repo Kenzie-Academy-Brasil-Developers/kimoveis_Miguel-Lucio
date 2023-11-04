@@ -1,10 +1,11 @@
 import { AppDataSource } from "./data-source";
-import { Address, Category, RealEstate, User } from "./entities";
+import { Address, Category, RealEstate, Schedule, User } from "./entities";
 import {
   TCategoryRepo,
   TUserRepo,
   TRealEstateRepo,
   TAddressRepo,
+  TScheduleRepo,
 } from "./interfaces";
 
 export const usersRepository: TUserRepo = AppDataSource.getRepository(User);
@@ -17,3 +18,6 @@ export const realEstatesRepository: TRealEstateRepo =
 
 export const addressesRepository: TAddressRepo =
   AppDataSource.getRepository(Address);
+
+export const schedulesRepository: TScheduleRepo =
+  AppDataSource.getRepository(Schedule);

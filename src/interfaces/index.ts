@@ -11,6 +11,7 @@ import {
   TRealEstateRepo,
   TRealEstatesArrayReturn,
 } from "./realEstates.interface";
+import { TScheduleCreate, TScheduleRepo } from "./schedules.interface";
 import {
   TUserCreate,
   TUserAdminOmit,
@@ -24,6 +25,7 @@ export { TAddressRepo };
 export { TCategory, TCategoryCreate, TCategoryArrayReturn, TCategoryRepo };
 export { TLoginBody, TLoginReturn };
 export { TRealEstateCreate, TRealEstateRepo, TRealEstatesArrayReturn };
+export { TScheduleCreate, TScheduleRepo };
 export {
   TUserCreate,
   TUserAdminOmit,

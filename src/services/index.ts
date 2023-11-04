@@ -9,6 +9,10 @@ import {
   readRealEstatesService,
 } from "./realEstates.service";
 import {
+  createScheduleService,
+  readScheduleByRealEstateService,
+} from "./schedules.service";
+import {
   createUserService,
   readUsersService,
   updateUserService,
@@ -22,6 +26,7 @@ export {
 };
 export { loginService };
 export { createRealEstateService, readRealEstatesService };
+export { createScheduleService, readScheduleByRealEstateService };
 export {
   createUserService,
   readUsersService,
