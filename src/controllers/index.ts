@@ -9,6 +9,10 @@ import {
   readRealEstatesController,
 } from "./realEstates.controller";
 import {
+  createScheduleController,
+  readScheduleByRealEstateController,
+} from "./schedules.controller";
+import {
   createUserController,
   deleteUserController,
   readUsersController,
@@ -22,6 +26,7 @@ export {
 };
 export { loginController };
 export { createRealEstateController, readRealEstatesController };
+export { createScheduleController, readScheduleByRealEstateController };
 export {
   createUserController,
   deleteUserController,
