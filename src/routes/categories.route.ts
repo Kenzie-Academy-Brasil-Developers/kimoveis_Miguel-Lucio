@@ -24,4 +24,7 @@ categoriesRoutes.post(
 );
 categoriesRoutes.get("/", readCategoriesController);
 
-categoriesRoutes.get("/:id/realEstate", readRealEstateByCategoryController);
+categoriesRoutes.get(
+  "/:id/realEstate",
+  readRealEstateByCategoryController
+);
