@@ -19,12 +19,10 @@ export const readCategoriesService =
     return categories;
   };
 
-export const readRealEstateByCategoryService = async (
-  id: number
-): Promise<Category> => {
-  const category = await categoriesRepository.findOne({
-    where: { id },
-    relations: { realEstates: true },
+export const readRealEstateByCategoryService = async (id: number) => {
+  const category: Category | null = await categoriesRepository.findOne({
+    where: { id: id },
+    relations: { realEstate: true },
   });
 
   if (!category) throw new AppError("Category not found", 404);
