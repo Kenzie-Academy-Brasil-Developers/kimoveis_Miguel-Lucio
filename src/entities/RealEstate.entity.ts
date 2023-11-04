@@ -40,6 +40,6 @@ export class RealEstate {
   @JoinColumn()
   address: Address;
 
-  @ManyToOne(() => Category, (c) => c.realEstates)
+  @ManyToOne(() => Category, (c) => c.realEstate)
   category: Category;
 }

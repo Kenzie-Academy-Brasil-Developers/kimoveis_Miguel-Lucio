@@ -1,3 +1,4 @@
+import { TAddressRepo } from "./addresses.interface";
 import {
   TCategory,
   TCategoryCreate,
@@ -5,6 +6,7 @@ import {
   TCategoryRepo,
 } from "./categories.interface";
 import { TLoginBody, TLoginReturn } from "./login.interface";
+import { TRealEstateCreate, TRealEstateRepo } from "./realEstates.interface";
 import {
   TUserCreate,
   TUserAdminOmit,
@@ -14,8 +16,10 @@ import {
   TUserRepo,
 } from "./users.interface";
 
+export { TAddressRepo };
 export { TCategory, TCategoryCreate, TCategoryArrayReturn, TCategoryRepo };
 export { TLoginBody, TLoginReturn };
+export { TRealEstateCreate, TRealEstateRepo };
 export {
   TUserCreate,
   TUserAdminOmit,

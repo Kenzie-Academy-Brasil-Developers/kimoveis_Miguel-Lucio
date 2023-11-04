@@ -4,6 +4,7 @@ import {
   readRealEstateByCategoryController,
 } from "./categories.controller";
 import { loginController } from "./login.controller";
+import { createRealEstateController } from "./realEstates.controller";
 import {
   createUserController,
   deleteUserController,
@@ -17,6 +18,7 @@ export {
   readRealEstateByCategoryController,
 };
 export { loginController };
+export { createRealEstateController };
 export {
   createUserController,
   deleteUserController,
