@@ -6,7 +6,10 @@ import {
   verifyToken,
 } from "../middlewares";
 import { realEstateCreateSchema } from "../schemas";
-import { createRealEstateController } from "../controllers";
+import {
+  createRealEstateController,
+  readRealEstatesController,
+} from "../controllers";
 
 export const realEstatesRoutes: Router = Router();
 
@@ -18,3 +21,5 @@ realEstatesRoutes.post(
   verifyAddress,
   createRealEstateController
 );
+
+realEstatesRoutes.get("/", readRealEstatesController);

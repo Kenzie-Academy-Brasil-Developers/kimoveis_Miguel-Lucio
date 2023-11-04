@@ -4,7 +4,10 @@ import {
   readRealEstateByCategoryService,
 } from "./categories.service";
 import { loginService } from "./login.service";
-import { createRealEstateService } from "./realEstates.service";
+import {
+  createRealEstateService,
+  readRealEstatesService,
+} from "./realEstates.service";
 import {
   createUserService,
   readUsersService,
@@ -18,7 +21,7 @@ export {
   readRealEstateByCategoryService,
 };
 export { loginService };
-export { createRealEstateService };
+export { createRealEstateService, readRealEstatesService };
 export {
   createUserService,
   readUsersService,

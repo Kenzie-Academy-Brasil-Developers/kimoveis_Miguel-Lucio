@@ -1,5 +1,5 @@
 import { RealEstate } from "../entities";
-import { TRealEstateCreate } from "../interfaces";
+import { TRealEstateCreate, TRealEstatesArrayReturn } from "../interfaces";
 import {
   addressesRepository,
   categoriesRepository,
@@ -28,3 +28,11 @@ export const createRealEstateService = async (
 
   return realEstate!;
 };
+
+export const readRealEstatesService =
+  async (): Promise<TRealEstatesArrayReturn> => {
+    const realEstates: TRealEstatesArrayReturn =
+      await realEstatesRepository.find({ relations: { address: true } });
+
+    return realEstates;
+  };
